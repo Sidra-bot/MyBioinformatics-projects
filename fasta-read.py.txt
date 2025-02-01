@@ -1,0 +1,17 @@
+from Bio import SeqIO
+
+def analyse_fasta(file_path):
+    sequences = list(SeqIO.parse(file_path, "fasta"))
+    num_sequences = len(sequences)
+
+longest_seq = max(sequences, key=lambda seq: len(seq.seq))
+shortest_seq = min(sequences, key=lambda seq: len(seq.seq))
+
+    print(f"Total sequences: {num_sequences}")
+    print(f"Longest sequence: {longest_seq.id} | Length: {len(longest_seq.seq)}")
+    print(f"Shortest sequence: {shortest_seq.id} | Length: {len(shortest_seq.seq)}")
+
+
+
+file_path = "example.fasta"  # Replace with your FASTA file name
+analyze_fasta(file_path)
